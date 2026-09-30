@@ -25,7 +25,7 @@ se incluye -lpthread ya que el programa no usa hilos restricción del enunciado
 
 - Actividad: guarda el id, nombre, tiempo, la lista de dependencias (ids), la lista de dependientes (posiciones en el vector), un contador "pendientes", el "estado", los mensajes recibidos ("insumos") y el "fd_lectura" del pipe por donde el padre lee el resultado del hijo.
 - Estado: PENDIENTE, EJECUTANDO, FINALIZADA, FALLIDA o ABORTADA.
-- listos ("queue<int>"): actividades sin dependencias pendientes que esperan un cupo.
+- listos (`queue<int>`): actividades sin dependencias pendientes que esperan un cupo.
 - en_ejecucion (unordered_map<pid_t, int>): relaciona el pid de cada hijo vivo con la posicion de su actividad. Su tamaño nunca supera K.
   
 ## Funciones implementadas 
