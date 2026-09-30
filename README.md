@@ -51,6 +51,6 @@ se incluye -lpthread ya que el programa no usa hilos restricción del enunciado
 - Sin race conditions: solo el padre modifica el estado del grafo, no hay memoria compartida y la comunicación es por pipes. El manejador de SIGINT solo modifica una variable volatile sig_atomic_t.
 - Dos pipes por actividad: uno para enviar los insumos del padre al hijo y otro para el resultado del hijo al padre. Cada proceso cierra los extremos que no usa, para recibir EOF correctamente y no dejar descriptores abiertos.
 - Mensajes acotados: máximo 20 insumos por actividad y 60 caracteres por mensaje, lo que mantiene los mensajes pequeños y facilita la comunicación por pipes.
-- Aislamiento de errores: si un hijo termina con código distinto de 0, se marca FALLIDA y abortar_rama() marca como ABORTADA a sus descendientes pendientes. El resto del plan continúa y una actividad abortada nunca se lanza.
+- Aislamiento de errores: si un hijo termina con código distinto de 0, se marca FALLIDA y abortar_rama() marca como ABORTADA a sus descendientes pendientes. El resto del plan continúa.
 - Ctrl+C: el manejador se instala con sigaction() sin SA_RESTART para que waitpid() se interrumpa (EINTR) y el padre detecte la bandera. Luego cancelar_todo() envía SIGTERM a los hijos, los espera con waitpid() para evitar zombies y marca como ABORTADA lo que no terminó. SIGPIPE se ignora para que un hijo muerto no termine al padre.
 - Errores del sistema: si pipe() o fork() fallan, se aborta la rama correspondiente sin cerrar todo el programa.
