@@ -30,17 +30,17 @@ se incluye -lpthread ya que el programa no usa hilos restricción del enunciado
   
 ## Funciones implementadas 
 
--limpiar: Elimina espacios y saltos de línea al inicio y final de un texto.   
--leer_plan: Lee el archivo plan.txt, separa los campos y dependencias. Asigna un tiempo aleatorio si falta y rechaza líneas incompletas.  
--construir_grafo: Construye el grafo de actividades, detectando IDs repetidos y dependencias inexistentes.  
--leer_todo: Lee datos de un pipe hasta que se cierra.  
--trabajar: Simula el trabajo usando nanosleep sin consumir CPU.  
--proceso_hijo: El hijo recibe sus datos, realiza el trabajo y avisa al padre cuando termina. Si el nombre comienza con "falla", termina con error.  
--lanzar: Crea los pipes, hace fork y configura la comunicación entre padre e hijo.   
--abortar_rama: Si una actividad falla, marca como ABORTADAS todas sus actividades dependientes que aún estén pendientes.  
--cancelar_todo: Al presionar Ctrl+C, termina los hijos activos, espera a que finalicen y marca como abortadas las actividades incompletas.  
--manejador_sigint: Solo registra que se recibió Ctrl+C mediante una bandera.  
--main: Valida los argumentos, carga el plan, configura las señales y ejecuta la planificación. Al final muestra cuántas actividades terminaron.  
+- limpiar: Elimina espacios y saltos de línea al inicio y final de un texto.   
+- leer_plan: Lee el archivo plan.txt, separa los campos y dependencias. Asigna un tiempo aleatorio si falta y rechaza líneas incompletas.  
+- construir_grafo: Construye el grafo de actividades, detectando IDs repetidos y dependencias inexistentes.  
+- leer_todo: Lee datos de un pipe hasta que se cierra.  
+- trabajar: Simula el trabajo usando nanosleep sin consumir CPU.  
+- proceso_hijo: El hijo recibe sus datos, realiza el trabajo y avisa al padre cuando termina. Si el nombre comienza con "falla", termina con error.  
+- lanzar: Crea los pipes, hace fork y configura la comunicación entre padre e hijo.   
+- abortar_rama: Si una actividad falla, marca como ABORTADAS todas sus actividades dependientes que aún estén pendientes.  
+- cancelar_todo: Al presionar Ctrl+C, termina los hijos activos, espera a que finalicen y marca como abortadas las actividades incompletas.  
+- manejador_sigint: Solo registra que se recibió Ctrl+C mediante una bandera.  
+- main: Valida los argumentos, carga el plan, configura las señales y ejecuta la planificación. Al final muestra cuántas actividades terminaron.  
 
 ## decisión de diseño 
 
