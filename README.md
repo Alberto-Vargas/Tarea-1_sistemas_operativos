@@ -5,9 +5,9 @@ Integrante Alberto Vargas
 ## Descripción general 
 
 El programa lee un plan de actividades " plan.txt " que forma un DAG y lo ejecuta respetando dependencias 
-entre actividades y con un límite de concurrencia "K".
-Cada actividad se ejecuta en un proceso independiente creado con "fork".
-La comunicación entre el padre " planificador" y los hijos "actividades" se hace solo mediante pipes.
+entre actividades y con un límite de concurrencia "K".  
+Cada actividad se ejecuta en un proceso independiente creado con "fork",
+La comunicación entre el padre " planificador" y los hijos "actividades" se hace solo mediante pipes.  
 Cuando una actividad termina bien, el padre reenvía su mensaje a las actividades que dependen de ella como insumo,
 sí una actividad falla se aborta la rama y si el usuario Presiona Ctrl+C se abortan todas las actividades 
 
